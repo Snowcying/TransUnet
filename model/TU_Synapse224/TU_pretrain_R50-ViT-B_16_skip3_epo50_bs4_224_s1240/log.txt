@@ -1,0 +1,73 @@
+[18:01:40.560] Namespace(base_lr=0.01, batch_size=4, dataset='Synapse', deterministic=1, exp='TU_Synapse224', img_size=224, is_pretrain=True, list_dir='./lists/list_my', max_epochs=50, max_iterations=30000, n_gpu=1, n_skip=3, num_classes=6, root_path='../data/Mydata/train/npz_6', seed=1240, vit_name='R50-ViT-B_16', vit_patches_size=16)
+[18:01:40.565] 896 iterations per epoch. 44800 max iterations 
+[18:03:14.779] Namespace(base_lr=0.01, batch_size=4, dataset='Synapse', deterministic=1, exp='TU_Synapse224', img_size=224, is_pretrain=True, list_dir='./lists/list_my', max_epochs=50, max_iterations=30000, n_gpu=1, n_skip=3, num_classes=6, root_path='../data/Mydata/train/npz_6', seed=1240, vit_name='R50-ViT-B_16', vit_patches_size=16)
+[18:03:14.803] 896 iterations per epoch. 44800 max iterations 
+[18:09:07.075] Namespace(base_lr=0.01, batch_size=4, dataset='Synapse', deterministic=1, exp='TU_Synapse224', img_size=224, is_pretrain=True, list_dir='./lists/list_my', max_epochs=50, max_iterations=30000, n_gpu=1, n_skip=3, num_classes=6, root_path='../data/Mydata/train/npz_6', seed=1240, vit_name='R50-ViT-B_16', vit_patches_size=16)
+[18:09:07.081] 896 iterations per epoch. 44800 max iterations 
+[18:13:15.204] 0.349 IOU
+[18:17:12.690] 0.558 IOU
+[18:20:52.526] 0.659 IOU
+[18:24:32.255] 0.694 IOU
+[18:28:12.077] 0.716 IOU
+[18:28:12.476] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1240/epoch_4.pth
+[18:31:52.219] 0.729 IOU
+[18:31:52.907] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1240/epoch_5.pth
+[18:35:32.447] 0.747 IOU
+[18:35:32.870] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1240/epoch_6.pth
+[18:39:12.980] 0.77 IOU
+[18:39:13.400] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1240/epoch_7.pth
+[18:42:52.972] 0.769 IOU
+[18:42:53.397] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1240/epoch_8.pth
+[18:46:33.180] 0.791 IOU
+[18:46:33.593] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1240/epoch_9.pth
+[18:50:13.473] 0.802 IOU
+[18:50:13.878] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1240/epoch_10.pth
+[18:53:53.760] 0.811 IOU
+[18:53:54.169] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1240/epoch_11.pth
+[18:57:33.719] 0.813 IOU
+[18:57:34.129] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1240/epoch_12.pth
+[19:01:13.987] 0.813 IOU
+[19:01:14.395] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1240/epoch_13.pth
+[19:04:54.225] 0.821 IOU
+[19:04:54.715] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1240/epoch_14.pth
+[19:08:34.623] 0.825 IOU
+[19:08:34.993] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1240/epoch_15.pth
+[19:12:15.359] 0.832 IOU
+[19:12:15.728] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1240/epoch_16.pth
+[19:15:56.080] 0.838 IOU
+[19:15:56.453] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1240/epoch_17.pth
+[19:19:36.380] 0.819 IOU
+[19:19:36.749] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1240/epoch_18.pth
+[19:23:16.671] 0.659 IOU
+[19:26:56.571] 0.622 IOU
+[19:30:36.587] 0.664 IOU
+[19:34:16.981] 0.702 IOU
+[19:34:17.352] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1240/epoch_22.pth
+[19:37:57.382] 0.677 IOU
+[19:41:39.807] 0.737 IOU
+[19:41:40.179] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1240/epoch_24.pth
+[19:45:19.985] 0.722 IOU
+[19:45:20.352] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1240/epoch_25.pth
+[19:49:00.558] 0.7 IOU
+[19:52:40.442] 0.749 IOU
+[19:52:40.810] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1240/epoch_27.pth
+[19:56:20.649] 0.708 IOU
+[19:56:21.017] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1240/epoch_28.pth
+[20:00:01.396] 0.687 IOU
+[20:04:20.590] 0.678 IOU
+[20:09:08.738] 0.663 IOU
+[20:09:09.141] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1240/epoch_31.pth
+[20:14:00.284] 0.748 IOU
+[20:14:00.687] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1240/epoch_32.pth
+[20:18:52.020] 0.734 IOU
+[20:18:52.417] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1240/epoch_33.pth
+[20:23:43.513] 0.753 IOU
+[20:23:43.914] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1240/epoch_34.pth
+[20:28:35.287] 0.761 IOU
+[20:28:35.710] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1240/epoch_35.pth
+[20:33:25.995] 0.749 IOU
+[20:33:26.392] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1240/epoch_36.pth
+[20:37:51.792] 0.764 IOU
+[20:37:52.170] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1240/epoch_37.pth
+[20:41:37.636] 0.762 IOU
+[20:41:38.014] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1240/epoch_38.pth

@@ -70,5 +70,5 @@ def get_array_h5(h5_file):
 # print(array_shapes)
 
 
-h5_file= '/home/cxy/paper/TransUnet/data/Synapse/test_vol_h5/case0001.npy.h5'
-get_array_h5(h5_file)
+# h5_file= '/home/cxy/paper/TransUnet/data/Synapse/test_vol_h5/case0001.npy.h5'
+# get_array_h5(h5_file)

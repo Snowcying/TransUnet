@@ -37,7 +37,7 @@ def trainer_synapse(args, model, snapshot_path):
 
     trainloader = DataLoader(db_train, batch_size=batch_size, shuffle=True, num_workers=8, pin_memory=True,
                              worker_init_fn=worker_init_fn)
-    valModel=model
+    # valModel=model
     if args.n_gpu > 1:
         model = nn.DataParallel(model)
     model.train()
@@ -109,10 +109,11 @@ def trainer_synapse(args, model, snapshot_path):
 
         IOU = round(np.mean(epoch_iou), 3)
         logging.info("{} IOU".format(IOU))
+        writer.add_scalar('info/IoU', IOU, epoch_num)
 
         # save_interval = 50  # int(max_epoch/6)
         save_interval = int(max_epoch/6)  # int(max_epoch/6)
-        if epoch_num > int(max_epoch / 2) and (epoch_num + 1) % save_interval == 0:
+        if (epoch_num > int(max_epoch / 2) and (epoch_num + 1) % save_interval == 0) or IOU>0.7:
             save_mode_path = os.path.join(snapshot_path, 'epoch_' + str(epoch_num) + '.pth')
             torch.save(model.state_dict(), save_mode_path)
             logging.info("save model to {}".format(save_mode_path))

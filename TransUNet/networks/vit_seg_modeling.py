@@ -12,6 +12,7 @@ from os.path import join as pjoin
 import torch
 import torch.nn as nn
 import numpy as np
+from matplotlib import pyplot as plt
 
 from torch.nn import CrossEntropyLoss, Dropout, Softmax, Linear, Conv2d, LayerNorm
 from torch.nn.modules.utils import _pair
@@ -47,6 +48,20 @@ def swish(x):
 ACT2FN = {"gelu": torch.nn.functional.gelu, "relu": torch.nn.functional.relu, "swish": swish}
 
 
+def relative_pos_dis(height=32, weight=32, sita=0.9):
+    coords_h = torch.arange(height)
+    coords_w = torch.arange(weight)
+    coords = torch.stack(torch.meshgrid([coords_h, coords_w]))  # 2, Wh, Ww # 0 is 32 * 32 for h, 1 is 32 * 32 for w
+    coords_flatten = torch.flatten(coords, 1)  # 2, Wh*Ww
+    relative_coords = coords_flatten[:, :, None] - coords_flatten[:, None, :]  # 2, Wh*Ww, Wh*Ww
+    relative_coords = relative_coords.permute(1, 2, 0).contiguous()  # Wh*Ww, Wh*Ww, 2
+    dis = (relative_coords[:, :, 0].float()/height) ** 2 + (relative_coords[:, :, 1].float()/weight) ** 2
+    #dis = torch.exp(-dis*(1/(2*sita**2)))
+    return  dis
+
+global temps
+temps=[]
+
 class Attention(nn.Module):
     def __init__(self, config, vis):
         super(Attention, self).__init__()
@@ -63,6 +78,10 @@ class Attention(nn.Module):
         self.attn_dropout = Dropout(config.transformer["attention_dropout_rate"])
         self.proj_dropout = Dropout(config.transformer["attention_dropout_rate"])
 
+        self.headsita = nn.Parameter(torch.randn(self.num_attention_heads), requires_grad=True)
+        self.sig = nn.Sigmoid()
+        self.dis = relative_pos_dis(math.sqrt(config.num_patches), math.sqrt(config.num_patches), sita=0.9).cuda()
+
         self.softmax = Softmax(dim=-1)
 
     def transpose_for_scores(self, x):
@@ -71,6 +90,8 @@ class Attention(nn.Module):
         return x.permute(0, 2, 1, 3)
 
     def forward(self, hidden_states):
+        global temps
+        smooth = 1e-4
         mixed_query_layer = self.query(hidden_states)
         mixed_key_layer = self.key(hidden_states)
         mixed_value_layer = self.value(hidden_states)
@@ -80,8 +101,42 @@ class Attention(nn.Module):
         value_layer = self.transpose_for_scores(mixed_value_layer)
 
         attention_scores = torch.matmul(query_layer, key_layer.transpose(-1, -2))
-        attention_scores = attention_scores / math.sqrt(self.attention_head_size)
-        attention_probs = self.softmax(attention_scores)
+
+        qk_norm = torch.sqrt(torch.sum(query_layer ** 2, dim=-1) + smooth)[:, :, :, None] * torch.sqrt(
+            torch.sum(key_layer ** 2, dim=-1) + smooth)[:, :, None, :] + smooth
+
+        # attention_scores = attention_scores / math.sqrt(self.attention_head_size)
+        # attention_probs = self.softmax(attention_scores)
+
+        # temp=self.softmax(attention_scores / math.sqrt(self.attention_head_size))
+
+
+
+        attention_probs=attention_scores/qk_norm
+
+
+        temps.append(attention_probs.cpu().detach().numpy())
+
+        # Visualization:TransUNet,before
+        # attentionHeatmap_visual(temp,self.sig(self.headsita),out_dir='./Visualization/TransUNet', value=0.03)
+        # attentionHeatmap_visual(attention_probs,self.sig(self.headsita),out_dir='./Visualization/before', value=1)
+
+        factor = 1 / (2 * (self.sig(self.headsita) * (
+                    0.4 - 0.003) + 0.003) ** 2)  # af3 + limited setting this, or using the above line code
+        dis = factor[:, None, None] * self.dis[None, :, :]  # g n n
+        dis = torch.exp(-dis)
+        dis = dis / torch.sum(dis, dim=-1)[:, :, None]
+
+        #Visualization
+        # attentionHeatmap_visual(dis[None, :, :, :], self.sig(self.headsita), out_dir='./Visualization/dis', value=0.003)
+
+        attention_probs = attention_probs * dis[None, :, :, :]
+
+
+
+        # Visualization:after
+        # attentionHeatmap_visual(attention_probs, self.sig(self.headsita), out_dir='./Visualization/after', value=0.003)
+
         weights = attention_probs if self.vis else None
         attention_probs = self.attn_dropout(attention_probs)
 
@@ -92,6 +147,62 @@ class Attention(nn.Module):
         attention_output = self.out(context_layer)
         attention_output = self.proj_dropout(attention_output)
         return attention_output, weights
+
+global layer
+layer = 0
+global count
+count=0
+global picNum
+picNum=0
+
+import os
+import seaborn as sns
+def attentionHeatmap_visual(features,sita,out_dir='./attentionHeatMap/',value=0.05):
+    global picNum
+    out_dir=out_dir+'/'+str(picNum)+'/'
+    if not os.path.exists(out_dir):
+        os.mkdir(out_dir)
+    global layer
+    global count
+    b, c, h, w = features.shape
+    if b > 1:
+        b = 1
+
+    # mean_max=0
+    # if count>=0:
+    #     for i in range(c):
+    #         mean_max=mean_max+ np.max(features[0,i,:,:].cpu().detach().numpy())
+    #     mean_max=mean_max/c
+    #     value=mean_max
+
+    for i in range(b):
+        for j in range(c):
+            featureij = features[i, j, :, :]
+            featureij = featureij.cpu().detach().numpy()
+            # value=torch.max(features).item()
+            #fig = sns.heatmap(featureij, cmap="YlGnBu", vmin=0.0, vmax=0.005)  #Wistia, YlGnBu #0.005
+            fig = sns.heatmap(featureij, cmap="coolwarm", vmin=-value, vmax=value)  # 0.5 #0.003
+            fig.set_xticks(range(0))
+            #fig.set_xticklabels(f'{c:.1f}' for c in np.arange(0.1, 1.01, 0.1))
+            fig.set_yticks(range(0))
+            #fig.set_yticklabels(f'{c:.1f}' for c in np.arange(0.1, 1.01, 0.1))
+            #sns.despine()
+            plt.show()
+            plt.close()
+            fig_heatmap = fig.get_figure()
+            # imgpath = read_img_name()
+            imgpath = "test"
+            filename = os.path.basename(imgpath)
+            filename = filename.split('.')[0]
+            fig_heatmap.savefig(os.path.join(out_dir, filename + '_l' + str(layer) + '_' + str(j) + '_' + str(sita[j].item()) + '.png'))
+    count=count+1
+    if count==3:
+        layer = (layer + 1)
+        if layer==12:
+            picNum=picNum+1
+            layer=0
+        count=0
+
 
 
 class Mlp(nn.Module):
@@ -240,6 +351,11 @@ class Encoder(nn.Module):
             hidden_states, weights = layer_block(hidden_states)
             if self.vis:
                 attn_weights.append(weights)
+
+        global temps
+        res = np.array(temps)
+        np.save('after_attn', res)
+
         encoded = self.encoder_norm(hidden_states)
         return encoded, attn_weights
 

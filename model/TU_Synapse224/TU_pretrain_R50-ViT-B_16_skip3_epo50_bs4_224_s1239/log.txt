@@ -1,0 +1,58 @@
+[03:56:24.898] Namespace(base_lr=0.01, batch_size=4, dataset='Synapse', deterministic=1, exp='TU_Synapse224', img_size=224, is_pretrain=True, list_dir='./lists/list_my', max_epochs=50, max_iterations=30000, n_gpu=1, n_skip=3, num_classes=6, root_path='../data/Mydata/train/npz_6', seed=1239, vit_name='R50-ViT-B_16', vit_patches_size=16)
+[03:56:24.901] 896 iterations per epoch. 44800 max iterations 
+[03:59:58.706] 0.333 IOU
+[04:03:31.356] 0.58 IOU
+[04:07:03.905] 0.637 IOU
+[04:10:36.886] 0.69 IOU
+[04:14:09.468] 0.715 IOU
+[04:17:41.958] 0.728 IOU
+[04:21:14.495] 0.744 IOU
+[04:24:47.077] 0.765 IOU
+[04:28:19.708] 0.774 IOU
+[04:31:52.381] 0.779 IOU
+[04:35:25.014] 0.793 IOU
+[04:38:57.794] 0.799 IOU
+[04:42:30.462] 0.803 IOU
+[04:46:03.093] 0.803 IOU
+[04:49:36.066] 0.814 IOU
+[04:53:08.676] 0.822 IOU
+[04:56:41.372] 0.828 IOU
+[05:00:14.029] 0.661 IOU
+[05:03:46.728] 0.698 IOU
+[05:07:19.331] 0.703 IOU
+[05:10:51.874] 0.717 IOU
+[05:14:24.474] 0.695 IOU
+[05:17:57.071] 0.701 IOU
+[05:21:29.593] 0.672 IOU
+[05:25:02.200] 0.735 IOU
+[05:28:34.942] 0.757 IOU
+[05:32:07.642] 0.661 IOU
+[05:35:40.301] 0.716 IOU
+[05:39:12.934] 0.72 IOU
+[05:42:45.965] 0.744 IOU
+[05:46:18.592] 0.748 IOU
+[05:49:51.221] 0.771 IOU
+[05:49:51.609] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1239/epoch_31.pth
+[05:53:24.121] 0.722 IOU
+[05:56:56.735] 0.751 IOU
+[06:00:29.423] 0.769 IOU
+[06:04:01.976] 0.765 IOU
+[06:07:34.577] 0.781 IOU
+[06:11:07.194] 0.775 IOU
+[06:14:39.869] 0.758 IOU
+[06:18:12.465] 0.776 IOU
+[06:18:12.861] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1239/epoch_39.pth
+[06:21:45.434] 0.782 IOU
+[06:25:18.183] 0.79 IOU
+[06:28:50.827] 0.785 IOU
+[06:32:23.636] 0.782 IOU
+[06:35:56.459] 0.78 IOU
+[06:39:29.228] 0.793 IOU
+[06:43:02.015] 0.799 IOU
+[06:46:34.598] 0.804 IOU
+[06:46:34.994] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1239/epoch_47.pth
+[06:50:07.831] 0.807 IOU
+[06:53:40.344] 0.81 IOU
+[06:53:40.714] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1239/epoch_49.pth
+[18:00:43.933] Namespace(base_lr=0.01, batch_size=4, dataset='Synapse', deterministic=1, exp='TU_Synapse224', img_size=224, is_pretrain=True, list_dir='./lists/list_my', max_epochs=50, max_iterations=30000, n_gpu=1, n_skip=3, num_classes=6, root_path='../data/Mydata/train/npz_6', seed=1239, vit_name='R50-ViT-B_16', vit_patches_size=16)
+[18:00:43.937] 896 iterations per epoch. 44800 max iterations 

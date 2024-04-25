@@ -1,0 +1,75 @@
+[02:03:31.567] Namespace(base_lr=0.01, batch_size=4, dataset='Synapse', deterministic=1, exp='TU_Synapse224', img_size=224, is_pretrain=True, list_dir='./lists/list_my', max_epochs=50, max_iterations=30000, n_gpu=1, n_skip=3, num_classes=7, root_path='../data/Mydata/train/npz_6', seed=1236, vit_name='R50-ViT-B_16', vit_patches_size=16)
+[02:03:31.569] 896 iterations per epoch. 44800 max iterations 
+[02:05:22.017] Namespace(base_lr=0.01, batch_size=4, dataset='Synapse', deterministic=1, exp='TU_Synapse224', img_size=224, is_pretrain=True, list_dir='./lists/list_my', max_epochs=50, max_iterations=30000, n_gpu=1, n_skip=3, num_classes=7, root_path='../data/Mydata/train/npz_6', seed=1236, vit_name='R50-ViT-B_16', vit_patches_size=16)
+[02:05:22.029] 896 iterations per epoch. 44800 max iterations 
+[02:06:04.257] Namespace(base_lr=0.01, batch_size=4, dataset='Synapse', deterministic=1, exp='TU_Synapse224', img_size=224, is_pretrain=True, list_dir='./lists/list_my', max_epochs=50, max_iterations=30000, n_gpu=1, n_skip=3, num_classes=7, root_path='../data/Mydata/train/npz_6', seed=1236, vit_name='R50-ViT-B_16', vit_patches_size=16)
+[02:06:04.281] 896 iterations per epoch. 44800 max iterations 
+[02:06:37.866] Namespace(base_lr=0.01, batch_size=4, dataset='Synapse', deterministic=1, exp='TU_Synapse224', img_size=224, is_pretrain=True, list_dir='./lists/list_my', max_epochs=50, max_iterations=30000, n_gpu=1, n_skip=3, num_classes=7, root_path='../data/Mydata/train/npz_6', seed=1236, vit_name='R50-ViT-B_16', vit_patches_size=16)
+[02:06:37.869] 896 iterations per epoch. 44800 max iterations 
+[02:06:56.089] Namespace(base_lr=0.01, batch_size=4, dataset='Synapse', deterministic=1, exp='TU_Synapse224', img_size=224, is_pretrain=True, list_dir='./lists/list_my', max_epochs=50, max_iterations=30000, n_gpu=1, n_skip=3, num_classes=7, root_path='../data/Mydata/train/npz_6', seed=1236, vit_name='R50-ViT-B_16', vit_patches_size=16)
+[02:06:56.092] 896 iterations per epoch. 44800 max iterations 
+[02:09:47.478] Namespace(base_lr=0.01, batch_size=4, dataset='Synapse', deterministic=1, exp='TU_Synapse224', img_size=224, is_pretrain=True, list_dir='./lists/list_my', max_epochs=50, max_iterations=30000, n_gpu=1, n_skip=3, num_classes=7, root_path='../data/Mydata/train/npz_6', seed=1236, vit_name='R50-ViT-B_16', vit_patches_size=16)
+[02:09:47.480] 896 iterations per epoch. 44800 max iterations 
+[02:10:47.915] Namespace(base_lr=0.01, batch_size=4, dataset='Synapse', deterministic=1, exp='TU_Synapse224', img_size=224, is_pretrain=True, list_dir='./lists/list_my', max_epochs=50, max_iterations=30000, n_gpu=1, n_skip=3, num_classes=6, root_path='../data/Mydata/train/npz_6', seed=1236, vit_name='R50-ViT-B_16', vit_patches_size=16)
+[02:10:47.918] 896 iterations per epoch. 44800 max iterations 
+[02:14:11.897] Namespace(base_lr=0.01, batch_size=4, dataset='Synapse', deterministic=1, exp='TU_Synapse224', img_size=224, is_pretrain=True, list_dir='./lists/list_my', max_epochs=50, max_iterations=30000, n_gpu=1, n_skip=3, num_classes=7, root_path='../data/Mydata/train/npz_6', seed=1236, vit_name='R50-ViT-B_16', vit_patches_size=16)
+[02:14:11.921] 896 iterations per epoch. 44800 max iterations 
+[02:17:40.073] Namespace(base_lr=0.01, batch_size=4, dataset='Synapse', deterministic=1, exp='TU_Synapse224', img_size=224, is_pretrain=True, list_dir='./lists/list_my', max_epochs=50, max_iterations=30000, n_gpu=1, n_skip=3, num_classes=6, root_path='../data/Mydata/train/npz_6', seed=1236, vit_name='R50-ViT-B_16', vit_patches_size=16)
+[02:17:40.076] 896 iterations per epoch. 44800 max iterations 
+[02:19:19.462] 0.448 IOU
+[02:20:15.806] Namespace(base_lr=0.01, batch_size=4, dataset='Synapse', deterministic=1, exp='TU_Synapse224', img_size=224, is_pretrain=True, list_dir='./lists/list_my', max_epochs=50, max_iterations=30000, n_gpu=1, n_skip=3, num_classes=6, root_path='../data/Mydata/train/npz_6', seed=1236, vit_name='R50-ViT-B_16', vit_patches_size=16)
+[02:20:15.812] 896 iterations per epoch. 44800 max iterations 
+[02:23:48.141] 0.364 IOU
+[02:27:18.433] 0.605 IOU
+[02:30:46.218] 0.681 IOU
+[02:34:13.013] 0.717 IOU
+[02:37:39.778] 0.743 IOU
+[02:41:06.425] 0.753 IOU
+[02:44:32.944] 0.777 IOU
+[02:47:58.532] 0.791 IOU
+[02:51:24.324] 0.788 IOU
+[02:54:49.820] 0.803 IOU
+[02:58:15.276] 0.804 IOU
+[03:01:40.813] 0.821 IOU
+[03:05:06.302] 0.827 IOU
+[03:08:31.874] 0.688 IOU
+[03:11:57.513] 0.565 IOU
+[03:15:23.023] 0.687 IOU
+[03:18:48.719] 0.716 IOU
+[03:22:14.349] 0.695 IOU
+[03:25:39.977] 0.671 IOU
+[12:33:52.675] 0.745 IOU
+[12:37:21.425] 0.738 IOU
+[12:40:48.083] 0.708 IOU
+[12:44:14.579] 0.725 IOU
+[12:47:40.756] 0.703 IOU
+[12:51:07.187] 0.719 IOU
+[12:54:33.565] 0.75 IOU
+[12:58:00.073] 0.754 IOU
+[13:01:26.431] 0.771 IOU
+[13:04:52.718] 0.784 IOU
+[13:08:19.041] 0.699 IOU
+[13:11:45.376] 0.743 IOU
+[13:15:11.669] 0.75 IOU
+[13:15:12.124] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1236/epoch_31.pth
+[13:18:38.377] 0.712 IOU
+[13:22:04.583] 0.76 IOU
+[13:25:30.793] 0.776 IOU
+[13:28:57.007] 0.781 IOU
+[13:32:23.382] 0.776 IOU
+[13:35:49.758] 0.776 IOU
+[13:39:16.000] 0.784 IOU
+[13:42:42.445] 0.785 IOU
+[13:42:43.039] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1236/epoch_39.pth
+[13:46:09.542] 0.769 IOU
+[13:49:35.972] 0.753 IOU
+[13:53:02.329] 0.783 IOU
+[13:56:29.325] 0.792 IOU
+[13:59:56.020] 0.788 IOU
+[14:03:22.191] 0.803 IOU
+[14:06:48.105] 0.805 IOU
+[14:10:18.753] 0.809 IOU
+[14:10:19.133] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1236/epoch_47.pth
+[14:13:48.559] 0.811 IOU
+[14:17:20.430] 0.815 IOU
+[14:17:20.830] save model to ../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1236/epoch_49.pth

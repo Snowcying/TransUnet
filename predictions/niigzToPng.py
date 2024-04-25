@@ -5,9 +5,9 @@ import numpy as np
 from matplotlib import pyplot as plt
 import SimpleITK as sitk
 # 指定文件路径
-img_path = './TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo10_bs4_224/P00225518_img.nii.gz'  # 替换为你的NIFTI文件路径
-gt_path='./TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo10_bs4_224/P00225518_gt.nii.gz'
-pred_path='./TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo10_bs4_224/P00225518_pred.nii.gz'
+img_path = 'TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo31_bs4_224/P00225518_img.nii.gz'  # 替换为你的NIFTI文件路径
+gt_path= 'TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo31_bs4_224/P00225518_gt.nii.gz'
+pred_path= 'TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo31_bs4_224/P00225518_pred.nii.gz'
 
 # 使用nibabel读取.nii.gz文件
 nii = nib.load(img_path)

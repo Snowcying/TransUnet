@@ -16,6 +16,7 @@ from networks.vit_seg_modeling import CONFIGS as CONFIGS_ViT_seg
 import SimpleITK as sitk
 from scipy.ndimage import zoom
 from medpy import metric
+import segmentation_models_pytorch as smp
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--volume_path', type=str,
@@ -24,17 +25,17 @@ parser.add_argument('--volume_path', type=str,
 parser.add_argument('--dataset', type=str,
                     default='Synapse', help='experiment_name')
 parser.add_argument('--num_classes', type=int,
-                    default=7, help='output channel of network')
+                    default=6, help='output channel of network')
 parser.add_argument('--list_dir', type=str,
                     default='./lists/list_my', help='list dir')
 
 parser.add_argument('--max_iterations', type=int,default=30000, help='maximum epoch number to train')
-parser.add_argument('--max_epochs', type=int, default=10, help='maximum epoch number to train')
+parser.add_argument('--max_epochs', type=int, default=49, help='maximum epoch number to train')
 parser.add_argument('--batch_size', type=int, default=4,
                     help='batch_size per gpu')
 parser.add_argument('--img_size', type=int, default=224, help='input patch size of network input')
 # parser.add_argument('--is_savenii', action="store_true", help='whether to save results during inference')
-parser.add_argument('--is_savenii', default=True,action="store_true", help='whether to save results during inference')
+parser.add_argument('--is_savenii', default=False,action="store_true", help='whether to save results during inference')
 
 parser.add_argument('--n_skip', type=int, default=3, help='using number of skip-connect, default is num')
 parser.add_argument('--vit_name', type=str, default='R50-ViT-B_16', help='select one vit model')
@@ -42,7 +43,7 @@ parser.add_argument('--vit_name', type=str, default='R50-ViT-B_16', help='select
 parser.add_argument('--test_save_dir', type=str, default='../predictions', help='saving prediction as nii!')
 parser.add_argument('--deterministic', type=int,  default=1, help='whether use deterministic training')
 parser.add_argument('--base_lr', type=float,  default=0.01, help='segmentation network learning rate')
-parser.add_argument('--seed', type=int, default=1234, help='random seed')
+parser.add_argument('--seed', type=int, default=31, help='random seed')
 parser.add_argument('--vit_patches_size', type=int, default=16, help='vit_patches_size, default is 16')
 args = parser.parse_args()
 
@@ -142,9 +143,9 @@ if __name__ == "__main__":
     dataset_config = {
         'Synapse': {
             'Dataset': Synapse_dataset,
-            'volume_path': '../data/Mydata/val/h5',
+            'volume_path': '../data/Mydata/val/h5_6',
             'list_dir': './lists/list_my',
-            'num_classes': 7,
+            'num_classes': 6,
             'z_spacing': 1,
         },
     }
@@ -178,10 +179,20 @@ if __name__ == "__main__":
     if args.vit_name.find('R50') !=-1:
         config_vit.patches.grid = (int(args.img_size/args.vit_patches_size), int(args.img_size/args.vit_patches_size))
     net = ViT_seg(config_vit, img_size=args.img_size, num_classes=config_vit.n_classes).cuda()
-
+    # net =smp.UnetPlusPlus(
+    # encoder_name="resnet34",        # choose encoder, e.g. mobilenet_v2 or efficientnet-b7
+    # #encoder_weights="imagenet",     # use `imagenet` pre-trained weights for encoder initialization
+    # in_channels=1,                  # model input channels (1 for gray-scale images, 3 for RGB, etc.)
+    # classes=6,                      # model output channels (number of classes in your dataset)
+    # ).cuda()
     # pth path
     # snapshot = os.path.join(snapshot_path, 'best_model.pth')
-    snapshot = os.path.join('../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo21_bs4_224/epoch_20.pth')
+    # snapshot = os.path.join('../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo21_bs4_224/epoch_20.pth')
+
+
+    # 1238:Unet++  1236:transUnet 1237:Unet
+
+    snapshot = os.path.join('../model/TU_Synapse224/TU_pretrain_R50-ViT-B_16_skip3_epo50_bs4_224_s1240/epoch_37.pth')
 
     if not os.path.exists(snapshot): snapshot = snapshot.replace('best_model', 'epoch_'+str(args.max_epochs-1))
     net.load_state_dict(torch.load(snapshot))

@@ -5,3 +5,5 @@
 *.nii.gz
 *.DESKTOP-P7QK6CC
 *.Identifier
+./.idea/.gitignore
+*.npy

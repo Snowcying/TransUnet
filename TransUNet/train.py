@@ -8,7 +8,7 @@ import torch.backends.cudnn as cudnn
 from networks.vit_seg_modeling import VisionTransformer as ViT_seg
 from networks.vit_seg_modeling import CONFIGS as CONFIGS_ViT_seg
 from trainer import trainer_synapse
-
+import segmentation_models_pytorch as smp
 from torchsummary import summary
 
 
@@ -21,7 +21,7 @@ parser.add_argument('--dataset', type=str,
 parser.add_argument('--list_dir', type=str,
                     default='./lists/lists_my', help='list dir')
 parser.add_argument('--num_classes', type=int,
-                    default=7, help='output channel of network')
+                    default=6, help='output channel of network')
 parser.add_argument('--max_iterations', type=int,
                     default=30000, help='maximum epoch number to train')
 parser.add_argument('--max_epochs', type=int,
@@ -37,7 +37,7 @@ parser.add_argument('--img_size', type=int,
                     default=224, help='input patch size of network input')
                     # default=224, help='input patch size of network input')
 parser.add_argument('--seed', type=int,
-                    default=1234, help='random seed')
+                    default=1240, help='random seed')
 parser.add_argument('--n_skip', type=int,
                     default=3, help='using number of skip-connect, default is num')
 parser.add_argument('--vit_name', type=str,
@@ -67,9 +67,9 @@ if __name__ == "__main__":
         #     'num_classes': 9,
         # },
         'Synapse': {
-            'root_path': '../data/Mydata/train/npz',
+            'root_path': '../data/Mydata/train/npz_6',
             'list_dir': './lists/list_my',
-            'num_classes': 7,
+            'num_classes': 6,
         },
     }
     args.num_classes = dataset_config[dataset_name]['num_classes']
@@ -99,7 +99,14 @@ if __name__ == "__main__":
     # vitB16: hidden_size 768
     net = ViT_seg(config_vit, img_size=args.img_size, num_classes=config_vit.n_classes).cuda()
     net.load_from(weights=np.load(config_vit.pretrained_path))
-    summary(net)
+    # summary(net)
+    # net =smp.UnetPlusPlus(
+    # encoder_name="resnet34",        # choose encoder, e.g. mobilenet_v2 or efficientnet-b7
+    # #encoder_weights="imagenet",     # use `imagenet` pre-trained weights for encoder initialization
+    # in_channels=1,                  # model input channels (1 for gray-scale images, 3 for RGB, etc.)
+    # classes=6,                      # model output channels (number of classes in your dataset)
+    # ).cuda()
+    # net=net.cuda()
 
     trainer = {'Synapse': trainer_synapse,}
     trainer[dataset_name](args, net, snapshot_path)

@@ -55,6 +55,8 @@ def get_r50_b16_config():
     config.n_skip = 3
     config.activation = 'softmax'
 
+    config.num_patches=196
+
     return config
 
 

@@ -1,0 +1,66 @@
+ Namespace(Dataset=datasets.dataset_synapse.Synapse_dataset, base_lr=0.01, batch_size=4, dataset='Synapse', deterministic=1, exp='TU_Synapse224', img_size=224, is_pretrain=True, is_savenii=True, list_dir='./lists/list_my', max_epochs=49, max_iterations=30000, n_skip=3, num_classes=6, seed=39, test_save_dir='../predictions', vit_name='R50-ViT-B_16', vit_patches_size=16, volume_path='../data/Mydata/val/h5_6', z_spacing=1)
+ TU_pretrain_R50-ViT-B_16_skip3_epo49_bs4_224_s39
+ 4 test iterations per epoch
+ idx 0 case P00225518 mean_dice 0.759278 mean_hd95 90.503948
+ idx 1 case P00227454 mean_dice 0.752566 mean_hd95 55.456265
+ idx 2 case P00213687 mean_dice 0.588070 mean_hd95 79.163386
+ idx 3 case P00219634 mean_dice 0.680088 mean_hd95 102.384265
+ Mean class 1 mean_dice 0.602012 mean_hd95 27.421027
+ Mean class 2 mean_dice 0.663718 mean_hd95 226.474913
+ Mean class 3 mean_dice 0.690112 mean_hd95 124.124467
+ Mean class 4 mean_dice 0.745667 mean_hd95 19.060286
+ Mean class 5 mean_dice 0.773495 mean_hd95 12.304136
+ Testing performance in best val model: mean_dice : 0.695001 mean_hd95 : 81.876966
+
+========================================================
+ Namespace(Dataset=datasets.dataset_synapse.Synapse_dataset, base_lr=0.01, batch_size=4, dataset='Synapse', deterministic=1, exp='TU_Synapse224', img_size=224, is_pretrain=True, is_savenii=True, list_dir='./lists/list_my', max_epochs=49, max_iterations=30000, n_skip=3, num_classes=6, seed=39, test_save_dir='../predictions', vit_name='R50-ViT-B_16', vit_patches_size=16, volume_path='../data/Mydata/val/h5_6', z_spacing=1)
+ TU_pretrain_R50-ViT-B_16_skip3_epo49_bs4_224_s39
+ 4 test iterations per epoch
+ idx 0 case P00225518 mean_dice 0.815133 mean_hd95 8.190061
+ idx 1 case P00227454 mean_dice 0.773280 mean_hd95 13.639408
+ idx 2 case P00213687 mean_dice 0.668612 mean_hd95 30.289537
+ idx 3 case P00219634 mean_dice 0.790643 mean_hd95 92.658600
+ Mean class 1 mean_dice 0.663863 mean_hd95 21.375888
+ Mean class 2 mean_dice 0.736161 mean_hd95 71.195523
+ Mean class 3 mean_dice 0.681461 mean_hd95 70.336132
+ Mean class 4 mean_dice 0.810144 mean_hd95 8.427331
+ Mean class 5 mean_dice 0.917955 mean_hd95 9.637133
+ Testing performance in best val model: mean_dice : 0.761917 mean_hd95 : 36.194402
+
+
+========================================================
+
+
+ Namespace(Dataset=datasets.dataset_synapse.Synapse_dataset, base_lr=0.01, batch_size=4, dataset='Synapse', deterministic=1, exp='TU_Synapse224', img_size=224, is_pretrain=True, is_savenii=True, list_dir='./lists/list_my', max_epochs=49, max_iterations=30000, n_skip=3, num_classes=6, seed=39, test_save_dir='../predictions', vit_name='R50-ViT-B_16', vit_patches_size=16, volume_path='../data/Mydata/val/h5_6', z_spacing=1)
+ TU_pretrain_R50-ViT-B_16_skip3_epo49_bs4_224_s39
+ 4 test iterations per epoch
+ idx 0 case P00225518 mean_dice 0.835364 mean_hd95 8.121859
+ idx 1 case P00227454 mean_dice 0.787006 mean_hd95 11.174278
+ idx 2 case P00213687 mean_dice 0.695002 mean_hd95 27.904532
+ idx 3 case P00219634 mean_dice 0.759610 mean_hd95 89.398395
+ Mean class 1 mean_dice 0.671687 mean_hd95 20.698276
+ Mean class 2 mean_dice 0.718027 mean_hd95 70.928998
+ Mean class 3 mean_dice 0.721392 mean_hd95 65.720169
+ Mean class 4 mean_dice 0.803228 mean_hd95 9.080041
+ Mean class 5 mean_dice 0.931894 mean_hd95 4.321346
+ Testing performance in best val model: mean_dice : 0.769246 mean_hd95 : 34.149766
+
+# transFUse
+
+============================
+ Namespace(Dataset=datasets.dataset_synapse.Synapse_dataset, base_lr=0.01, batch_size=4, dataset='Synapse', deterministic=1, exp='TU_Synapse224', img_size=224, is_pretrain=True, is_savenii=True, list_dir='./lists/list_my', max_epochs=49, max_iterations=30000, n_skip=3, num_classes=6, seed=39, test_save_dir='../predictions', vit_name='R50-ViT-B_16', vit_patches_size=16, volume_path='../data/Mydata/val/h5_6', z_spacing=1)
+ TU_pretrain_R50-ViT-B_16_skip3_epo49_bs4_224_s39
+ 4 test iterations per epoch
+ idx 0 case P00225518 mean_dice 0.832967 mean_hd95 7.933723
+ idx 1 case P00227454 mean_dice 0.783046 mean_hd95 11.121799
+ idx 2 case P00213687 mean_dice 0.681707 mean_hd95 30.516775
+ idx 3 case P00219634 mean_dice 0.809200 mean_hd95 81.086714
+ Mean class 1 mean_dice 0.644656 mean_hd95 24.002717
+ Mean class 2 mean_dice 0.749187 mean_hd95 65.161859
+ Mean class 3 mean_dice 0.748613 mean_hd95 61.678537
+ Mean class 4 mean_dice 0.803162 mean_hd95 9.341379
+ Mean class 5 mean_dice 0.938031 mean_hd95 3.139271
+ Testing performance in best val model: mean_dice : 0.776730 mean_hd95 : 32.664753
+
+ours
+============================
